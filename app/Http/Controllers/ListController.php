@@ -59,9 +59,15 @@ class ListController extends Controller
 
     public function employee(Request $request)
     {
-        $data = Http::withToken(Session::get('token'))->get($this->api_host.'/api/employee')->json();
-        $employee = $data['data'];
-        return view('employee', compact('employee'));
+        try{            
+            $data = Http::withToken(Session::get('token'))->get($this->api_host.'/api/employee')->json();
+            $employee = $data['data'];
+            return view('employee', compact('employee'));
+        }
+        catch (\Exception $e) {
+            // return response()->json(['success' => false, 'http_code' => $e->getCode(), 'message' => $e->getMessage()]);
+            return redirect()->route('home'); 
+        }
     }
 
     public function getPaginator($items, $request)
