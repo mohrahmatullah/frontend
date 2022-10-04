@@ -47,6 +47,9 @@ class ListController extends Controller
             Session::flash('alert_toast', $alert_toast);
             return redirect()->route('employee');
         }
+        else{
+            echo "Salah login";
+        }
     }
 
     public function logout(){
@@ -84,4 +87,22 @@ class ListController extends Controller
             'query' => $request->query()
         ]);
     }
+
+    // public function getSplit(){
+
+    //     $var = '14532211';
+
+    //     $stri = (string)$var;
+
+    //     for ($i=1; $i<=10; $i++){
+    //         for ($j=10;$j>=$i;$j--){
+    //             echo $j;
+    //         }
+    //         echo "<br>";
+    //     }
+
+    //         $arr = get_defined_vars();
+
+    //     dd($arr);
+    // }
 }

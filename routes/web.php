@@ -30,3 +30,5 @@ Route::post('auth', [ListController::class, 'auth'])->name('auth');
 Route::get('employee', [ListController::class, 'employee'])->name('employee');
 
 Route::get('logout', [ListController::class, 'logout'])->name('logout');
+
+Route::get('split', [ListController::class, 'getSplit']);
