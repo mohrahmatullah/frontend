@@ -48,10 +48,10 @@
   {{--
   <!-- {{ $employee->appends(request()->input())->links() }} -->
 
+--}}
 
-  {!! $data->appends(Request::capture()->except('page'))->render('layouts.paginate') !!}
+  {!! $employee->appends(Request::capture()->except('page'))->render('layouts.paginate') !!}
   
-  --}}
 
   
 </div>

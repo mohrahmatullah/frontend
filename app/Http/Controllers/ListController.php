@@ -64,7 +64,8 @@ class ListController extends Controller
     {
         try{            
             $data = Http::withToken(Session::get('token'))->get($this->api_host.'/api/employee')->json();
-            $employee = $data['data'];
+
+            $employee = $this->getPaginator($data['data'], $request);
             return view('employee', compact('employee'));
         }
         catch (\Exception $e) {
